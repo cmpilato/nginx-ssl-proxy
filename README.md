@@ -1,7 +1,22 @@
 # nginx-ssl-proxy
 
-Quickly stand up Nginx in a Docker Compose stack configured to serve as an
-SSL-terminating proxy for the site of your choice.
+Quickly stand up Nginx in a Docker Compose stack configured to serve
+as an SSL-terminating proxy for the site of your choice.
+
+# Description
+
+This little Docker stack includes an Nginx image does the following on
+each startup:
+
+1.  Generates a self-signed certificate (using details from its
+    environment).
+2.  Modifies its server configuration to allow it to proxy requests to
+    another server (as defined by its environment).
+
+While, generally speaking, there is little value in using a self-signed
+certificate &mdash; especially one that changes every time the container
+starts &mdash; for the purposes of actual security, it can be useful in
+lesser circumstances for testing purposes.
 
 # Instructions
 
