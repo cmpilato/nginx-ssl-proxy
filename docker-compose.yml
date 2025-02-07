@@ -1,0 +1,20 @@
+# ==========================================================================
+# Services
+# ==========================================================================
+
+services:
+
+  # ------------------------------------------------------------------------
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_PROTO: ${BACKEND_PROTO}
+      BACKEND_PORT: ${BACKEND_PORT}
+      CERT_COUNTRY: ${CERT_COUNTRY}
+      CERT_ORGANIZATION: ${CERT_ORGANIZATION}
+    ports:
+      - "8443:443"
+    restart: unless-stopped
